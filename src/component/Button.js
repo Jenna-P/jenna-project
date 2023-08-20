@@ -10,12 +10,11 @@ import DownloadIcon from '@mui/icons-material/Download';
 const Button = ({image}) => {
 
         const downloadImage = (imageUrl) => {
-// fetch(`https://cors-anywhere.herokuapp.com/${imageUrl}}`)
+// fetch(imageUrl)
 // fetch(imageUrl,{
 //         mode: 'no-cors',     
 // } )
-//↑↑↑ download txt file instead jpg/png 
-            fetch(imageUrl)
+            fetch(`https://cors-anywhere.herokuapp.com/${imageUrl}}`)
                 .then(response => response.blob())
                 .then(blob => {
                     // Create a temporary anchor element
