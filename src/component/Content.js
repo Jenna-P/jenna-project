@@ -11,13 +11,6 @@ const Content = () => {
     const [current, setCurrent] = useState(0);
     const [images, setImages] = useState([]);
 
-    // const images = [
-    //       "https://images.pexels.com/photos/3836292/pexels-photo-3836292.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    //       "https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    //       "https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    //       "https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    //       "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-    //     ];
 
      useEffect(() => {
         const fetchMemesData = async () => {
@@ -47,7 +40,7 @@ const Content = () => {
                 <h1>Fun Programming memes</h1>
                 <hr />
             </div>
-            <img src={smile} alt="bg image" className='bgsmile' />
+            <img src={smile} alt="background" className='bgsmile' />
             <Typography fontWeight={600} color="#FF2625" sx={{ opacity: '0.1', display: { lg: 'block', xs: 'none' }, fontSize: '170px' }}>
             LAUGH
             </Typography>
@@ -62,7 +55,7 @@ const Content = () => {
               <div key={img.image} className="slide">
                 <img src={img.image} alt="images" />
                 <div>
-                    <Button img={img.image} />
+                    <Button image={img.image} />
                 </div>
               </div>
                 )

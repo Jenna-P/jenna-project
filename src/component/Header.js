@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className='header'>
       <div>
-        <a href='https://github.com/Jenna-P/jenna-project' target="_blank"><GitHubIcon fontSize="large"  /></a>
+        <a href='https://github.com/Jenna-P/jenna-project' target="_blank" rel="noreferrer"><GitHubIcon fontSize="large"  /></a>
       </div>
     </div>
   )

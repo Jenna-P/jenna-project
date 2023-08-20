@@ -5,10 +5,16 @@ import DownloadIcon from '@mui/icons-material/Download';
 //download image
 //get help from 
 //https://fontawesomeicons.com/fa/react-js-download-image-from-url?utm_content=cmp-true
-
-const Button = ({img}) => {
+//https://stackoverflow.com/questions/43462367/how-to-overcome-the-cors-issue-in-reactjs
+//https://stackoverflow.com/questions/59045549/download-image-using-fetch-in-reactjs
+const Button = ({image}) => {
 
         const downloadImage = (imageUrl) => {
+// fetch(`https://cors-anywhere.herokuapp.com/${imageUrl}}`)
+// fetch(imageUrl,{
+//         mode: 'no-cors',     
+// } )
+//↑↑↑ download txt file instead jpg/png 
             fetch(imageUrl)
                 .then(response => response.blob())
                 .then(blob => {
@@ -39,8 +45,8 @@ const Button = ({img}) => {
         };
 
         const handleDownload = () => {
-            downloadImage(img);
-            console.log(img);
+            downloadImage(image);
+            console.log(image);
         };
   return (
     <div className='btn-container'>
