@@ -4,18 +4,32 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import Typography from '@mui/material/Typography';
 import smile from '../image/smile.PNG';
 import Button from "./Button";
+import { options, fetchData } from '../util/fetchData';
 
 
 const Content = () => {
     const [current, setCurrent] = useState(0);
+    const [images, setImages] = useState([]);
 
-    const images = [
-          "https://images.pexels.com/photos/3836292/pexels-photo-3836292.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-          "https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-          "https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-          "https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-          "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        ];
+    // const images = [
+    //       "https://images.pexels.com/photos/3836292/pexels-photo-3836292.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    //       "https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    //       "https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    //       "https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    //       "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    //     ];
+
+     useEffect(() => {
+        const fetchMemesData = async () => {
+            let memesData = [];
+            memesData = await fetchData('https://programming-memes-images.p.rapidapi.com/v1/memes', options);
+            
+            setImages(memesData);
+        
+        };
+    
+        fetchMemesData();
+     }, []);
 
         function nextSlide() {
             setCurrent(current === images.length - 1 ? 0 : current + 1);
@@ -45,10 +59,10 @@ const Content = () => {
             {images.map(
           (img, index) => 
             current === index && (
-              <div key={img} className="slide">
-                <img src={img} alt="images" />
+              <div key={img.image} className="slide">
+                <img src={img.image} alt="images" />
                 <div>
-                    <Button img={img} />
+                    <Button img={img.image} />
                 </div>
               </div>
                 )
