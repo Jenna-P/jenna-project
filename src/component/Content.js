@@ -3,6 +3,8 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import Typography from '@mui/material/Typography';
 import smile from '../image/smile.PNG';
+import Button from "./Button";
+
 
 const Content = () => {
     const [current, setCurrent] = useState(0);
@@ -46,7 +48,7 @@ const Content = () => {
               <div key={img} className="slide">
                 <img src={img} alt="images" />
                 <div>
-                    Button
+                    <Button img={img} />
                 </div>
               </div>
                 )
